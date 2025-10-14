@@ -46,7 +46,7 @@ public class CreateShortUrlCommandHandler : IRequestHandler<CreateShortUrlComman
         var shortKey = _hashids.EncodeLong(urlEntity.Id);
 
         // 3. Return the full short URL (adjust base URL as needed)
-        var baseUrl = "https://localhost:5246/u/"; // Change to your deployed base URL if needed
+        var baseUrl = "http://localhost:5246/u/"; // Change to your deployed base URL if needed
         return $"{baseUrl}{shortKey}";
     }
 }
