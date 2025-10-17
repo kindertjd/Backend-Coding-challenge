@@ -42,6 +42,12 @@ public class RedirectToUrlEndpoint : BaseEndpoint<RedirectToUrlRequest>
             },
             ct
         );
+
+        if (result == null)
+        {
+            await SendNotFoundAsync(ct);
+            return;
+        }
         await SendRedirectAsync(result, allowRemoteRedirects:true);
     }
 }
